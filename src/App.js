@@ -7,7 +7,10 @@ class App extends Component {
   state = {}
 
   componentDidMount(){
-    fetch('https://yts.am/api/v2/list_movies.json?sort_by=year');
+    fetch('https://yts.am/api/v2/list_movies.json?sort_by=year')
+    .then(res=>res.json())
+    .then(json=>console.log(json))
+    .catch(err=> console.log(err))
   };
 
   _renderMovies= ()=>{
